@@ -25,6 +25,15 @@ services:
         depends_on:
             - mysql
             - redis
+            - phpmyadmin
+    phpmyadmin:
+        image: 'phpmyadmin:latest'
+        ports:
+            - 8080:80
+        networks:
+            - sail
+        environment:
+            - PMA_ARBITRARY=1
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
