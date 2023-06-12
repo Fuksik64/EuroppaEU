@@ -13,7 +13,7 @@ class EmployeeController extends Controller
      */
     public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        $data = Employee::with('branch')->get();
+        $data = Employee::with('branch')->paginate();
         return  EmployeeResource::collection($data);
     }
 

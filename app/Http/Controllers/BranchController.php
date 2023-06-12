@@ -13,7 +13,7 @@ class BranchController extends Controller
      */
     public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        $data = Branch::with('employees', 'cats')->get();
+        $data = Branch::with('employees', 'cats')->paginate();
         return  BranchResource::collection($data);
     }
 
