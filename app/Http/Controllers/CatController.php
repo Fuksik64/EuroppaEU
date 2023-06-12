@@ -13,8 +13,8 @@ class CatController extends Controller
      */
     public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        $data = Cat::with('branch')->paginate();
-        return CatResource::collection($data);
+        $data = Cat::with('branch')->get();
+        return  CatResource::collection($data);
     }
 
     /**
